@@ -1,0 +1,140 @@
+/* style.css - Theme Support for Dark/Light */
+:root {
+    /* Default Dark Mode */
+    --primary: #f26522;
+    --bg-color: #050505;
+    --card-bg: rgba(20, 20, 23, 0.7);
+    --text-main: #e2e8f0;
+    --text-muted: #9ca3af;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(0, 0, 0, 0.4);
+}
+
+html.light {
+    /* Light Mode Overrides - High Contrast */
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --border-color: #e5e7eb;
+    --input-bg: #f9fafb;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Typography */
+.font-orbitron { font-family: 'Orbitron', sans-serif; }
+.font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+
+/* Cyber Card */
+.cyber-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+html.light .cyber-card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Neon Inputs */
+.neon-input {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s;
+}
+.neon-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.input-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Buttons */
+.btn-cyber {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: all 0.3s;
+}
+.btn-cyber:hover {
+    background: var(--primary);
+    color: white; /* Always white on hover for contrast */
+    box-shadow: 0 0 20px var(--primary);
+}
+
+.nav-btn {
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    color: var(--text-muted);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-family: 'Orbitron', sans-serif;
+}
+.active-tab {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.animate-pulse-slow {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.neon-glow {
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+}
+
+/* Custom Animations */
+@keyframes hueRotate {
+    to { filter: hue-rotate(360deg); }
+}
+.animate-hue-slow {
+    animation: hueRotate 30s infinite linear;
+}
+
+/* Card Hover Effects */
+.cyber-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 0 20px var(--primary);
+}
+
+/* Button Active/Click Effects */
+.btn-cyber:active,
+.nav-btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s;
+}
