@@ -207,7 +207,7 @@ function calculateFees() {
     const discountScholarship = totalTuition * scholarship / 100;
     const payableTuition = totalTuition - (discountWaiver + discountScholarship);
     const retakeCost = retakeCr * rate * 0.5;
-    const total = payableTuition + retakeCost + 5000;
+    const total = payableTuition + retakeCost + 6500;
 
     document.getElementById('fee-total').textContent = total.toLocaleString() + ' Tk';
     document.getElementById('fee-tuition').textContent = totalTuition.toLocaleString() + ' Tk';
